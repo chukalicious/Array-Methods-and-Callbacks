@@ -4,13 +4,59 @@ console.log(fifaData);
 console.log('its working');
 // ⚽️ M  V P ⚽️ //
 
-/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
+/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data */
 
-(a) Home Team name for 2014 world cup final
-(b) Away Team name for 2014 world cup final
-(c) Home Team goals for 2014 world cup final
-(d) Away Team goals for 2014 world cup final
-(e) Winner of 2014 world cup final */
+//(a) Home Team name for 2014 world cup final
+function homeFinal2014(array) {
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].Stage === 'Final' && array[i].Year === 2014) {
+            return array[i]["Home Team Name"];
+        }
+    }
+}
+console.log(homeFinal2014(fifaData))
+
+//(b) Away Team name for 2014 world cup final
+function awayFinal2014(array) {
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].Stage === 'Final' && array[i].Year === 2014) {
+            return array[i]["Away Team Name"];
+        }
+    }
+}
+console.log(awayFinal2014(fifaData));
+
+//(c) Home Team goals for 2014 world cup final
+function homeTeamGoals2014(array) {
+    for (var i = 0; i < array.length; i++) {
+        if(array[i].Stage === 'Final' && array[i].Year === 2014) {
+            return array[i]['Home Team Goals'];
+        }
+    }
+}
+/* console.log(homeTeamGoals2014(fifaData) +' -home team scores');  */
+
+//(d) Away Team goals for 2014 world cup final
+function awayTeamGoals2014(array) {
+    for (var i = 0; i < array.length; i++) {
+        if(array[i].Stage === 'Final' && array[i].Year === 2014) {
+            return array[i]['Away Team Goals'];
+        }
+    }
+}
+/* console.log(awayTeamGoals2014(fifaData) + ' -away team goals'); */
+
+//(e) Winner of 2014 world cup final 
+function fifa2014Winner(array) {
+    /* if(callback1 > callback2) {
+        console.log(`The winner of the 2014 Fifa World Cup was ${array}`)
+    } else {
+        console.log(`The winner of the 2014 Fifa World Cup was ${}`)
+    } */
+}
+console.log(fifa2014Winner(fifaData)); 
+
+
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
@@ -102,3 +148,5 @@ function badDefense(/* code here */) {
 badDefense();
 
 /* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
+
+
