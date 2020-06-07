@@ -34,7 +34,7 @@ function homeTeamGoals2014(array) {
         }
     }
 }
-/* console.log(homeTeamGoals2014(fifaData) +' -home team scores');  */
+console.log(homeTeamGoals2014(fifaData) +' -home team scores'); 
 
 //(d) Away Team goals for 2014 world cup final
 function awayTeamGoals2014(array) {
@@ -44,15 +44,26 @@ function awayTeamGoals2014(array) {
         }
     }
 }
-/* console.log(awayTeamGoals2014(fifaData) + ' -away team goals'); */
+console.log(awayTeamGoals2014(fifaData) + ' -away team goals');
 
 //(e) Winner of 2014 world cup final 
 function fifa2014Winner(array) {
-    /* if(callback1 > callback2) {
-        console.log(`The winner of the 2014 Fifa World Cup was ${array}`)
+    let homeTeamScore;
+    let awayTeamScore;
+    //if team played in finals && team played in 2014
+    //keep score
+    for (var i = 0; i < array.length; i++) {
+        if(array[i].Stage === 'Final' && array[i].Year === 2014) {
+        homeTeamScore = array[i]['Home Team Goals'];
+        awayTeamScore = array[i]['Away Team Goals']
+        }
+    }
+    if(homeTeamScore > awayTeamScore) {
+        console.log(`The Fifa World Cup winner for 2014 was ${homeTeamScore}`)
     } else {
-        console.log(`The winner of the 2014 Fifa World Cup was ${}`)
-    } */
+        console.log(`The Fifa World Cup winner for 2014 was ${awayTeamScore}`)
+    }
+    
 }
 console.log(fifa2014Winner(fifaData)); 
 
