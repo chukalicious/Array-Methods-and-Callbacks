@@ -50,25 +50,23 @@ console.log(awayTeamGoals2014(fifaData) + ' -away team goals');
 function fifa2014Winner(array) {
     let homeTeamScore;
     let awayTeamScore;
-    //if team played in finals && team played in 2014
-    //keep score
+    let homeTeamName; 
+    let awayTeamName;
     for (var i = 0; i < array.length; i++) {
         if(array[i].Stage === 'Final' && array[i].Year === 2014) {
+        homeTeamName = array[i]['Home Team Name']; 
+        awayTeamName = array[i]['Away Team Name']
         homeTeamScore = array[i]['Home Team Goals'];
-        awayTeamScore = array[i]['Away Team Goals']
+        awayTeamScore = array[i]['Away Team Goals'];
         }
     }
     if(homeTeamScore > awayTeamScore) {
-        console.log(`The Fifa World Cup winner for 2014 was ${homeTeamScore}`)
+        return `The Fifa World Cup winner for 2014 was ${homeTeamName} with ${homeTeamScore} scored goals`;
     } else {
-        console.log(`The Fifa World Cup winner for 2014 was ${awayTeamScore}`)
-    }
-    
+        return `The Fifa World Cup winner for 2014 was ${awayTeamName} with ${awayTeamScore} scored goals`;
+    }   
 }
 console.log(fifa2014Winner(fifaData)); 
-
-
-
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
