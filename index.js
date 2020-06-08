@@ -87,13 +87,14 @@ console.log(getYears(getFinals));
 
 /* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-
+function getWinners(callback) {
+    let finals = callback(fifaData);
+    finals.forEach(item => finals.push(item.Year))
+    return finals; 
     /* code here */
 
-};
-
-getWinners();
+}
+console.log(getWinners(getFinals)); 
 
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
@@ -156,5 +157,105 @@ function badDefense(/* code here */) {
 badDefense();
 
 /* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
+
+
+
+let fruit = ['apple', 'apple', 'pear', 'grapes','orange', 'apple', 'apple', 'apple', 'apple', 'guava', 'pineaple', 'cherry']
+
+//put apples in basket
+function applesInBasket() {
+    let basket = []; 
+    let ground = []; 
+    for (var i = 0; i < fruit.length; i++) {
+        //if the item is an apple put it in the basket
+        if(fruit[i] === 'apple') {
+            basket.push(fruit[i]); 
+        } else {
+            // if the fruit is not an apple throw it on the ground;
+            ground.push(fruit[i]); 
+        }
+    }
+    console.log(`There are ${basket.length} apples in the basket and on the ground are ${ground.join(', ')}`)
+} 
+applesInBasket() 
+
+//////// Other exercise//////////
+
+//fill 3 arrays with number if they meet certain criteria
+let numbers = [32, 21, 4, 5, 3, 45, 21, 32, 654,43, 87, 54]
+let array1 = []; 
+let array2 = []; 
+let array3 = []; 
+for(var i = 0; i < numbers.length; i++) {
+  if(numbers[i] < 10) {
+    array1.push(numbers[i]);
+  } else if (numbers[i] >= 11 && numbers[i] < 100) {
+    array2.push(numbers[i]); 
+  } else {
+    array3.push(numbers[i]); 
+  }
+}
+console.log(`These numbers are less than 10: ${array1.join(', ')}`); 
+console.log(`These numbers are more than 10 but less than 100: ${array2.join(', ')}`); 
+console.log(`These numbers are over 100: ${array3.join(', ')}`); 
+
+
+/////////////////////////////
+let colors = ['red', 'red', 'red', 'green', 'blue', 'yellow', 'pink', 'white', 'black', 'brown'] 
+
+
+//////////////
+//Filter 
+
+let feverIsDown = colors.filter(color => color === 'red');
+console.log(`The fever has been contained, look: ${feverIsDown.join(', ')}`); 
+
+let pickUpThatFruit = fruit.filter(fruit => fruit !== 'apple');
+console.log(`Pick up that ${pickUpThatFruit.join(', ')}. There's too much food wasting as it is!`);
+
+let inThePoorHouse = numbers.filter(number => number < 10);
+console.log(`I only got $${inThePoorHouse.join(', $')} available in my savings, checking and credit card accounts`);
+
+let gotARaise = numbers.filter(number => number >= 10 && number < 100);
+
+//////map 
+
+
+let toWords = inThePoorHouse.map(number => number.toString()); 
+console.log(toWords); 
+
+let fromRagsToRiches = inThePoorHouse.map(number => number * 100);
+console.log(`I invented a map and now I've got $${fromRagsToRiches.join(', $')} available in my savings, checking and credit card accounts`); 
+
+let littleAcorns = pickUpThatFruit.map(fruit => fruit = 'acorn'); 
+console.log(`These are my problems in little pieces: ${littleAcorns.join(', ')}`)
+
+//reduce 
+
+let allMyMoney = fromRagsToRiches.reduce((base, add) => base + add); 
+console.log(`I got $${allMyMoney}. Let's fix the car `); 
+
+let ImMiddleClass = gotARaise.reduce((base, add) => base + add); 
+console.log(`I just make a quick purchase of essentials at Sephora for $${ImMiddleClass}`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
