@@ -73,15 +73,15 @@ console.log(fifa2014Winner(fifaData));
 function getFinals(data) {
     let finals = data.filter(item => item.Stage === 'Final');
     return finals; 
-};
-console.log(getFinals(fifaData)); 
+}
+console.log(getFinals(fifaData), '<-- getFinals'); 
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
 function getYears(callback) {
     let data = callback(fifaData);
     let years = data.map(item => item.Year);
-    return years; 
+    return years 
 }
 console.log(getYears(getFinals)); 
 
@@ -89,10 +89,19 @@ console.log(getYears(getFinals));
 
 function getWinners(callback) {
     let finals = callback(fifaData);
-    finals.forEach(item => finals.push(item.Year))
-    return finals; 
-    /* code here */
-
+    let homeScore;
+    let awayScore;
+    let winners = [];
+    for (var i = 0; i < finals.length; i++) {
+        homeScore = finals[i]["Home Team Goals"];
+        awayScore = finals[i]['Away Team Goals'];
+        if(homeScore > awayScore) {
+            winners.push(`${finals[i]["Home Team Name"]} won the finals`);
+        } else {
+            winners.push(`${finals[i]['Away Team Name']} won the finals`);
+        }
+    }
+    return winners; 
 }
 console.log(getWinners(getFinals)); 
 
